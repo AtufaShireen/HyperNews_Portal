@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<h2>Hyper news</h2>
+<form method="get">
+    <label for="search">Search News</label>
+    <input type="text" id="search" name="q">
+    <button type="submit">Submit</button>
+</form>
+
+
+{%  regroup de|dictsortreversed:'created' by created.split|slice:':1'|join:"" as publication  %}
+{% for date,news in publication %}
+<h4>{{date}}</h4>
+<ul>
+    {% for article in news %}
+    <li><a href="{%url 'news'%}{{article.link}}/"> {{article.title}} </a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+
+
+<a href="{%url 'news'%}create/" >create</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create news</title>
+</head>
+<body>
+<form method="post" action="/news/create/">
+    {%csrf_token%}
+    <label for="1">Title</label>
+    <input type="text" name="title" id="1">
+    <label for="2">Text</label>
+    <input type="text" name="text" id="2">
+    <button type="submit">Submit</button>
+</form>
+<a href="{%url 'news'%}" target="_blank">HYPER PAGE</a>
+</body>
+</html>
